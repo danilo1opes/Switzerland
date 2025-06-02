@@ -7,9 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        lora: ['Lora', 'serif'],
+        ogg: ['"Ogg TRIAL"', 'serif'],
+      },
       colors: {
         brand: {
           primary: '#fff',
+          secundary: '#000',
         },
       },
     },

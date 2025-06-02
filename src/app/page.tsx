@@ -1,7 +1,13 @@
-export default function Home() {
+'use client';
+
+import { Hero } from '@/components/Hero';
+import { Navbar } from '@/components/Navbar';
+
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl text-brand-primary font-bold">Hello World!</h1>
-    </main>
+    <>
+      <Navbar />
+      <Hero />
+    </>
   );
 }
