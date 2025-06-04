@@ -1,13 +1,11 @@
 'use client';
 
-import { Hero } from '@/components/Hero';
-import { Navbar } from '@/components/Navbar';
+import { HeroWithNavbar } from '@/components/HeroWithNavbar';
 
 export default function HomePage() {
   return (
     <>
-      <Navbar />
-      <Hero />
+      <HeroWithNavbar />
     </>
   );
 }
