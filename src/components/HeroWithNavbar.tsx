@@ -23,7 +23,7 @@ export function HeroWithNavbar() {
     <section className="h-screen relative overflow-hidden">
       {/* Fundo com Montanhas */}
       <Image
-        src="/img/mountain-bg.jpg"
+        src="/img/forest-bg.jpg"
         fill
         alt="Montanhas"
         priority
