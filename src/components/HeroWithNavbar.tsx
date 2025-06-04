@@ -21,15 +21,8 @@ export function HeroWithNavbar() {
 
   return (
     <section className="h-screen relative overflow-hidden">
-      {/* Fundo com Montanhas */}
-      <Image
-        src="/img/forest-bg.jpg"
-        fill
-        alt="Montanhas"
-        priority
-        className="object-cover"
-      />
-
+      {/* Background-image: Desktop, mobile, tablet */}
+      <div className="absolute inset-0 bg-forest-responsive bg-cover bg-center"></div>
       {/* Nuvens */}
       <Image
         src="/img/clouds.png"
@@ -62,8 +55,8 @@ export function HeroWithNavbar() {
       <nav className="absolute top-0 left-0 w-full p-6 lg:p-10 z-50">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <h1 className="text-3xl lg:text-4xl tracking-[0.5em] text-brand-secundary font-light font-ogg uppercase">
-              Cosmos
+            <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-[0.5em] text-brand-secundary font-light font-ogg uppercase">
+              Forest
             </h1>
           </Link>
 
