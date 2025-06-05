@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Conhecido por sua beleza natural, economia forte e o principal: sua qualidade de vida.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/img/favicon.ico',
   },
 };
 
