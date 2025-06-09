@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CiMenuBurger } from 'react-icons/ci';
+import { motion } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
 import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 
