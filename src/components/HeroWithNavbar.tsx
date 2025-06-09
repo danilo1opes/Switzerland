@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import { CiMenuBurger } from 'react-icons/ci';
-import { motion } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
 import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -85,7 +84,7 @@ export function HeroWithNavbar() {
                 </li>
               ))}
               <Link
-                href="/signup"
+                href="/"
                 className="text-brand-primary bg-brand-secundary p-4 px-8 rounded-3xl"
               >
                 Sign Up
@@ -116,7 +115,7 @@ export function HeroWithNavbar() {
                 ))}
                 <li className="pt-2">
                   <Link
-                    href="/signup"
+                    href="/"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="inline-block text-brand-secundary bg-brand-primary p-4 px-8 rounded-3xl w-fit hover:opacity-90 transition-opacity"
                   >
