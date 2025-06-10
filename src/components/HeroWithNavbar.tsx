@@ -172,7 +172,7 @@ export function HeroWithNavbar() {
           </p>
           <h1
             className="
-              text-2xl md:text-6xl lg:text-7xl 
+              text-3xl md:text-6xl lg:text-7xl 
               tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em]
               text-brand-primary xl:text-brand-secundary
             "
@@ -194,28 +194,28 @@ export function HeroWithNavbar() {
         >
           <div className="flex items-end gap-4 cursor-pointer z-10">
             <Link href="https://github.com/danilo1opes">
-              <FaGithub className="text-lg md:text-4xl" />
+              <FaGithub className="text-2xl md:text-4xl" />
             </Link>
             <Link href="https://www.instagram.com/danilo1opes/">
-              <FaInstagram className="text-lg md:text-4xl" />
+              <FaInstagram className="text-2xl md:text-4xl" />
             </Link>
             <Link href="https://www.linkedin.com/in/danilo-1opes/">
-              <FaLinkedin className="text-lg md:text-4xl" />
+              <FaLinkedin className="text-2xl md:text-4xl" />
             </Link>
           </div>
 
           {/* Datas */}
           <div className="flex items-end gap-[10px] md:gap-6 text-right z-10">
-            <span className="text-3xl md:text-7xl xl:text-9xl font-light">
+            <span className="text-4xl md:text-7xl xl:text-9xl font-light">
               01
             </span>
             <span className="w-6 md:w-16 lg:w-28 h-px bg-brand-primary mb-2" />
-            <span className="text-sm md:text-4xl font-light">05</span>
+            <span className="text-base md:text-4xl font-light">05</span>
           </div>
 
           {/* Scroll */}
           <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 flex flex-col items-center text-center">
-            <p className="text-sm lg:text-5xl uppercase tracking-[0.5em] mb-4">
+            <p className="text-xl lg:text-5xl uppercase tracking-[0.5em] mb-4">
               Scroll
             </p>
             <span className="w-px h-[80px] md:h-[115px] bg-brand-primary" />

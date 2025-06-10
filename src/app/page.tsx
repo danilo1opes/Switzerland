@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Destination } from '@/components/Destination';
 import { HeroWithNavbar } from '@/components/HeroWithNavbar';
+import { MdTouchApp } from 'react-icons/md';
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0); // e a posição do scroll vertical atual
@@ -107,7 +108,9 @@ export default function HomePage() {
           transitionDelay: isLoaded ? '800ms' : '0ms',
         }}
       >
-        <div className="w-6 h-10 border-2 border-brand-primary/40 rounded-full flex justify-center">
+        <MdTouchApp className="w-8 h-8 text-brand-primary/60 animate-pulse md:hidden" />
+
+        <div className="hidden md:flex w-6 h-10 border-2 border-brand-primary/40 rounded-full justify-center">
           <div className="w-1 h-3 bg-brand-primary/60 rounded-full mt-2 animate-pulse" />
         </div>
       </div>

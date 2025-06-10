@@ -26,6 +26,11 @@
 @layer components {
   .bg-forest-responsive {
     background-image: url('/img/mountain-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Força o Safari a renderizar corretamente */
+    -webkit-background-size: cover;
   }
 
   @media (min-width: 640px) {
