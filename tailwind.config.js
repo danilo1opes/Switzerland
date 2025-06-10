@@ -9,7 +9,6 @@ module.exports = {
     extend: {
       fontFamily: {
         lora: ['Lora', 'serif'],
-        ogg: ['Ogg TRIAL', 'serif'],
         bodoni: ['Bodoni Moda', 'serif'],
       },
       colors: {
