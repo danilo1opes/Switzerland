@@ -26,28 +26,12 @@ export function HeroWithNavbar() {
 
       {/* Nuvens */}
       <Image
-        src="/img/clouds.png"
+        src="/img/cloud-full.svg"
         alt="Nuvem Esquerda"
-        width={800}
+        width={1500}
         height={600}
         priority
         className="absolute left-0 top-0 object-contain opacity-90 pointer-events-none"
-      />
-      <Image
-        src="/img/clouds-f.png"
-        alt="Nuvem Frente"
-        width={1400}
-        height={900}
-        priority
-        className="absolute top-0 left-1/2 -translate-x-1/2 object-contain opacity-95 pointer-events-none"
-      />
-      <Image
-        src="/img/clouds-r.png"
-        alt="Nuvem Direita"
-        width={600}
-        height={300}
-        priority
-        className="absolute right-0 top-0 object-contain opacity-90 pointer-events-none"
       />
 
       {/* Navbar */}
@@ -143,7 +127,7 @@ export function HeroWithNavbar() {
           <p
             className="
               mb-4 sm:mb-6 
-              text-lg md:text-3xl 
+              text-lg md:text-xl lg:text-3xl 
               tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em]
               text-brand-primary xl:text-brand-secundary
             "
@@ -152,7 +136,7 @@ export function HeroWithNavbar() {
           </p>
           <h1
             className="
-              text-4xl md:text-7xl 
+              text-4xl md:text-6xl lg:text-7xl 
               tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em]
               text-brand-primary xl:text-brand-secundary
             "
@@ -189,7 +173,7 @@ export function HeroWithNavbar() {
 
           {/* Scroll */}
           <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 flex flex-col items-center text-center">
-            <p className="text-3xl md:text-5xl uppercase tracking-[0.5em] mb-4">
+            <p className="text-3xl lg:text-5xl uppercase tracking-[0.5em] mb-4">
               Scroll
             </p>
             <span className="w-px h-[115px] bg-brand-primary" />

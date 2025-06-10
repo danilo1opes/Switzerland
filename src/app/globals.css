@@ -25,18 +25,18 @@
 
 @layer components {
   .bg-forest-responsive {
-    background-image: url('/img/forest-mobile.jpg');
+    background-image: url('/img/mountain-mobile.svg');
   }
 
   @media (min-width: 640px) {
     .bg-forest-responsive {
-      background-image: url('/img/forest-tablet.jpg');
+      background-image: url('/img/mountain-tablet.svg');
     }
   }
 
   @media (min-width: 1024px) {
     .bg-forest-responsive {
-      background-image: url('/img/forest-desktop.jpg');
+      background-image: url('/img/mountain-desktop.svg');
     }
   }
 }
