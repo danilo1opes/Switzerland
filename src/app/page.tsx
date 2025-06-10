@@ -6,20 +6,26 @@ import { HeroWithNavbar } from '@/components/HeroWithNavbar';
 import { MdTouchApp } from 'react-icons/md';
 
 export default function HomePage() {
-  const [scrollY, setScrollY] = useState(0); // e a posição do scroll vertical atual
-  const [isLoaded, setIsLoaded] = useState(false); // ver se a pagina foi carregado apos o timeout
-  const [windowHeight, setWindowHeight] = useState(0); // para alculo da altura do navegador
+  const [scrollY, setScrollY] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(0);
+  const [documentHeight, setDocumentHeight] = useState(0);
 
-  const rafId = useRef<number | null>(null); // guarda o ID para evital multiplas chamadas no scroll
-  const lastScrollY = useRef(0); // guarda o ultimo valor do scroll
+  const rafId = useRef<number | null>(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    setWindowHeight(window.innerHeight);
+    const updateDimensions = () => {
+      setWindowHeight(window.innerHeight);
+      setDocumentHeight(document.documentElement.scrollHeight);
+    };
 
-    const timer = setTimeout(() => setIsLoaded(true), 150); // controle inicial
+    updateDimensions();
+
+    const timer = setTimeout(() => setIsLoaded(true), 150);
 
     const handleScroll = () => {
-      if (rafId.current) return; // evitação dos multiplos
+      if (rafId.current) return;
 
       rafId.current = requestAnimationFrame(() => {
         const currentScrollY = window.scrollY;
@@ -33,11 +39,14 @@ export default function HomePage() {
     };
 
     const handleResize = () => {
-      setWindowHeight(window.innerHeight);
+      updateDimensions();
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    // Atualiza dimensões após o carregamento completo
+    window.addEventListener('load', updateDimensions);
 
     return () => {
       clearTimeout(timer);
@@ -46,21 +55,25 @@ export default function HomePage() {
       }
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('load', updateDimensions);
     };
   }, []);
 
-  const scrollProgress = Math.min(scrollY / (windowHeight * 0.7), 1); // quão avançado está a altura da janela
+  // Cálculo mais preciso considerando diferentes tamanhos de tela
+  const scrollThreshold = Math.max(windowHeight * 0.8, 600); // Mínimo de 600px para telas muito pequenas
+  const scrollProgress = Math.min(scrollY / scrollThreshold, 1);
 
-  const heroOpacity = Math.max(0, 1 - scrollProgress * 1.2); // opacidade do componente HeroWithNavbar
-  const heroTransform = scrollY * 0.3; // Distancia que será deslocada
+  // Animações do Hero
+  const heroOpacity = Math.max(0, 1 - scrollProgress * 1.3);
+  const heroTransform = scrollY * 0.4;
 
+  // Animações do Destination com transição mais suave
   const destOpacity =
-    scrollProgress > 0.2 ? Math.min(1, (scrollProgress - 0.2) * 2.5) : 0; // opacidade da seção Destination
-  const destTransform = Math.max(0, (1 - scrollProgress) * 30); // deslocamento do Destination
+    scrollProgress > 0.15 ? Math.min(1, (scrollProgress - 0.15) * 1.8) : 0;
+  const destTransform = Math.max(0, (1 - scrollProgress) * 40);
 
-  // FLAGS PARA RENDERIZAR
-
-  const shouldAnimateHero = scrollProgress < 0.9;
+  // Flags de renderização otimizadas
+  const shouldAnimateHero = scrollProgress < 0.95;
   const shouldAnimateDestination = scrollProgress > 0.1;
 
   return (
@@ -72,48 +85,74 @@ export default function HomePage() {
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
-            transform: `translate3d(0, ${-heroTransform}px, 0`,
+            transform: `translate3d(0, ${-heroTransform}px, 0)`,
             opacity: heroOpacity,
+            willChange: 'transform, opacity',
           }}
         >
           <HeroWithNavbar />
         </div>
       )}
 
-      {/* Espaço da altura da janela */}
-      <div style={{ height: windowHeight }} />
+      {/* Espaço para permitir o scroll */}
+      <div style={{ height: `${windowHeight}px` }} />
 
       {/* Destination Section */}
       <div
-        className="relative z-20 bg-brand-primary transition-all duration-500 ease-out"
+        className="relative z-20 bg-brand-secundary transition-all duration-700 ease-out"
         style={{
           opacity: shouldAnimateDestination ? destOpacity : 0,
           transform: shouldAnimateDestination
             ? `translate3d(0, ${destTransform}px, 0)`
-            : 'translate3d(0, 50px, 0)',
+            : 'translate3d(0, 60px, 0)',
+          willChange: 'transform, opacity',
         }}
       >
         <Destination />
       </div>
 
-      {/* Indicador */}
+      {/* Indicador de Scroll */}
       <div
-        className={`fixed bottom-8 left-1/2 z-50 transition-all duration-300 ${
-          scrollProgress > 0.15 || !isLoaded
-            ? 'opacity-0 pointer-events-none'
-            : 'opacity-100'
+        className={`fixed bottom-8 left-1/2 z-50 transition-all duration-500 ${
+          scrollProgress > 0.2 || !isLoaded
+            ? 'opacity-0 pointer-events-none scale-90'
+            : 'opacity-100 scale-100'
         }`}
         style={{
           transform: 'translate3d(-50%, 0, 0)',
-          transitionDelay: isLoaded ? '800ms' : '0ms',
+          transitionDelay: isLoaded ? '1000ms' : '0ms',
         }}
       >
-        <MdTouchApp className="w-8 h-8 text-brand-primary/60 animate-pulse md:hidden" />
+        {/* Indicador Mobile */}
+        <div className="flex flex-col items-center md:hidden">
+          <MdTouchApp className="w-8 h-8 text-brand-primary/70 animate-bounce" />
+          <span className="text-xs text-brand-primary/60 mt-1 font-medium">
+            Deslize
+          </span>
+        </div>
 
-        <div className="hidden md:flex w-6 h-10 border-2 border-brand-primary/40 rounded-full justify-center">
-          <div className="w-1 h-3 bg-brand-primary/60 rounded-full mt-2 animate-pulse" />
+        {/* Indicador Desktop */}
+        <div className="hidden md:flex flex-col items-center">
+          <div className="w-6 h-10 border-2 border-brand-primary/50 rounded-full flex justify-center relative overflow-hidden">
+            <div
+              className="w-1 h-3 bg-brand-primary/70 rounded-full mt-2 animate-bounce"
+              style={{ animationDelay: '0.5s' }}
+            />
+          </div>
+          <span className="text-xs text-brand-primary/60 mt-2 font-medium">
+            Scroll
+          </span>
         </div>
       </div>
+
+      {/* Background overlay para transição mais suave */}
+      <div
+        className="fixed inset-0 z-5 bg-brand-secundary pointer-events-none"
+        style={{
+          opacity: Math.max(0, scrollProgress - 0.7) * 2,
+          transition: 'opacity 0.3s ease-out',
+        }}
+      />
     </div>
   );
 }
