@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Destination } from '@/components/Destination';
 import { HeroWithNavbar } from '@/components/HeroWithNavbar';
-import { div } from 'framer-motion/client';
 
 export default function HomePage() {
   const [scrollY, setScrollY] = useState(0); // e a posição do scroll vertical atual
