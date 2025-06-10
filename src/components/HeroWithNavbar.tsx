@@ -51,10 +51,12 @@ export function HeroWithNavbar() {
         <Image
           src="/img/cloud-full.svg"
           alt="Nuvem Esquerda"
-          width={1500}
+          width={1920}
           height={600}
           priority
-          className="absolute left-0 top-0 object-contain opacity-90 pointer-events-none"
+          className="absolute left-0 top-0 opacity-90 pointer-events-none
+               w-[120vw] sm:w-[110vw] md:w-[105vw] lg:w-[100vw] xl:w-[100vw] 2xl:w-full
+               h-auto object-cover"
         />
       </motion.div>
 
