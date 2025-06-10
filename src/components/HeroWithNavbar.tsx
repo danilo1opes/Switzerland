@@ -71,7 +71,10 @@ export function HeroWithNavbar() {
         <div>
           <div className="flex items-center justify-between">
             <Link href="/">
-              <h1 className="text-2xl md:text-3xl lg:text-4xl tracking-[0.5em] text-brand-secundary font-light font-ogg uppercase">
+              <h1
+                style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
+                className="text-2xl md:text-3xl lg:text-4xl tracking-[0.5em] text-brand-secundary font-light font-ogg uppercase"
+              >
                 Forest
               </h1>
             </Link>
@@ -94,7 +97,10 @@ export function HeroWithNavbar() {
 
             {/* Desktop Menu */}
             <div className="hidden lg:block">
-              <ul className="uppercase font-ogg flex gap-12 items-center cursor-pointer text-brand-secundary">
+              <ul
+                style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
+                className="uppercase font-ogg flex gap-12 items-center cursor-pointer text-brand-secundary"
+              >
                 {navItems.map((item, index) => (
                   <li key={index}>
                     <Link href={item.href}>{item.name}</Link>
@@ -118,7 +124,10 @@ export function HeroWithNavbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               />
               <div className="absolute left-0 right-0 top-full mt-4 mx-6 bg-brand-secundary/90 backdrop-blur-md rounded-lg p-6 z-50 shadow-2xl">
-                <ul className="flex flex-col gap-6 font-ogg uppercase text-lg text-brand-primary">
+                <ul
+                  style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
+                  className="flex flex-col gap-6 font-ogg uppercase text-lg text-brand-primary"
+                >
                   {navItems.map((item, index) => (
                     <li key={index}>
                       <Link
@@ -163,6 +172,7 @@ export function HeroWithNavbar() {
           "
         >
           <p
+            style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
             className="
               mb-4 sm:mb-6 
               text-[10px] md:text-xl lg:text-3xl 
@@ -173,6 +183,7 @@ export function HeroWithNavbar() {
             Discover
           </p>
           <h1
+            style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
             className="
               text-3xl md:text-6xl lg:text-7xl 
               tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.5em]
@@ -208,16 +219,27 @@ export function HeroWithNavbar() {
 
           {/* Datas */}
           <div className="flex items-end gap-[10px] md:gap-6 text-right z-10">
-            <span className="text-4xl md:text-7xl xl:text-9xl font-light">
+            <span
+              style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
+              className="text-4xl md:text-7xl xl:text-9xl "
+            >
               01
             </span>
             <span className="w-6 md:w-16 lg:w-28 h-px bg-brand-primary mb-2" />
-            <span className="text-base md:text-4xl font-light">05</span>
+            <span
+              style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
+              className="text-base md:text-4xl"
+            >
+              05
+            </span>
           </div>
 
           {/* Scroll */}
           <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 flex flex-col items-center text-center">
-            <p className="text-xl lg:text-5xl uppercase tracking-[0.5em] mb-4">
+            <p
+              style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}
+              className="text-xl lg:text-5xl uppercase tracking-[0.5em] mb-4"
+            >
               Scroll
             </p>
             <span className="w-px h-[80px] md:h-[115px] bg-brand-primary" />

@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
-@import url(https://db.onlinewebfonts.com/c/119e0176c9899b8b0875ef4b3ef3eeb9?family=Ogg+TRIAL);
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 @layer base {
@@ -43,5 +42,14 @@
     .bg-forest-responsive {
       background-image: url('/img/mountain-desktop.svg');
     }
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: 'Ogg Trial';
+    src: url('/fonts/ogg/Ogg-Trial.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
   }
 }

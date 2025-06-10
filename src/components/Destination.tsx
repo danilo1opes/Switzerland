@@ -27,7 +27,7 @@ export function Destination() {
       <div className="max-w-7xl mx-auto w-full">
         {/* Título */}
         <div className="uppercase flex justify-center text-brand-primary text-4xl md:text-5xl lg:text-7xl text-center mb-16">
-          <h1 className="font-ogg">
+          <h1 style={{ fontFamily: 'Ogg Trial', fontWeight: 400 }}>
             <span className="font-bodoni font-semibold italic">Top</span>{' '}
             Destination
           </h1>
